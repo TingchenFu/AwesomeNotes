@@ -15,25 +15,6 @@
           },
       )
   
-      log_dir: str = field(
-          default=asset_manager.slurm_log_dir.path,
-          metadata={
-              "help": "slurm log dir",
-              "exclude_from_hash": True,
-              "exclude_from_executor": True,
-          },
-      )
-  
-      log_path: str = field(
-          # default=str(Path(asset_manager.slurm_log_dir.path) / "%j"),
-          default=SI("${interpreter.slurm_args.log_dir}/${id}"),
-          metadata={
-              "help": "Log directory for the slurm job",
-              "exclude_from_hash": True,
-              "exclude_from_executor": True,
-          },
-      )
-  
       account: str = field(
           default="maui",
           metadata={
